@@ -1,0 +1,26 @@
+Critial Rendering Path - the sequence of steps the browser uses to render your page
+
+Sequence of steps web browser uses to change HTML, CSS, and JavaScript to pixels on the screen
+
+Characters/HTML response -> Tokens -> Nodes -> DOM
+
+angle brackets signal tags
+tags are converted to tokens
+tokens are convereted to nodes
+
+<html> --> StartTag: html --> html node
+
+StartTag tokens determine if an object is a child of something
+
+Consuming all the tokens results in the creation of the DOM (tree structure that captures the content and properties of the HTML and relationship between the nodes)
+
+Browsers build the page incrementally
+
+Google search uses the header of the page
+	- Requests page and GETS html
+	- After getting HTML it builds the page head
+	- Builds DOM and renders
+	- After building the DOM and rendering the page head it moves to the seach results
+	- Builds the DOM and renders the search results on teh age
+Incremental HTML delivery
+
