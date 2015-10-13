@@ -1,0 +1,48 @@
+CSSOM
+
+angle brakets are for HTML
+
+tokens to nodes
+body, p, span, img etc - those are the tokens
+font-size, font-weight. float, etc - those are nodes
+
+children of body node get their node characteristics
+
+More specific tags are more expensive since it has to traverse more nodes in the DOM treets
+
+Measure first - optimize second
+
+'Recalculate Style' step - changes CSS response to CSS DOM
+
+
+DOM - content of page
+CSSDOM - styles of the page
+
+Render Tree
+ - only captures visible content and styles
+ - start at root of DOM tree
+ 	- do any CSS rules match with it
+ 	- if yes - and they should be shown (so not displany:none), copy node to Render Tree
+ 	- if the CSS rule says it shouldn't be displayed this also trickles down to the children of the token
+
+
+Layout
+- set <meta name="viewport" content="width=device-width"
+
+We care about the 'Rendering' parts
+
+When we update the layer tree - we cause the computer to run the entire thing all over again
+
+Batch updates to optimize sites
+
+Painting also requires updating the render tree
+
+1. Parsing constructing the DOM
+	- this happens asynchronus since you can parse at you get it, can be incremental and reponse may not come all at once, may not construct it all at once
+2. Request CSS & JS resources
+    - script is synchronous so can't implement it until we have an CSSOM, completing the CSSOM unblocks the Javascript engine and allows us to use it
+    - once Javascript engie is unblocked it will implement it and then continue to the DOM construction
+3. Parse CSS and construct CSSOM tree
+4. Execute JS
+5. Merge DOM and CSSOM into the Render Tree
+6. Run layout, paint
